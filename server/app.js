@@ -1,11 +1,11 @@
+const dotenv=require("dotenv");
 const express=require("express");
-const mongoose=require("mongoose")
+dotenv.config({path:'./config.env'})
 const app=express();
-const port=8000;
-const DB="mongodb+srv://dharmesh:dharmesh@cluster0.zdycv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-mongoose.connect(DB).then(()=>{
-    console.log("Connection Established")
-}).catch((err)=>console.log("Something went to be wrong"))
+
+require('./db/db')
+const port=process.env.PORT;
+
 //middleware
 
 const middleware=(req,res,next)=>{
