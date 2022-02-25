@@ -2,10 +2,13 @@ const dotenv=require("dotenv");
 const express=require("express");
 dotenv.config({path:'./config.env'})
 const app=express();
-
+//for understand post data to convert into json
+app.use(express.json())
 require('./db/db')
+//routes
+app.use(require("./routers/auth"))
 const port=process.env.PORT;
-
+// const User=require('./models/user.model')
 //middleware
 
 const middleware=(req,res,next)=>{
@@ -14,9 +17,7 @@ const middleware=(req,res,next)=>{
 }
 
 
-app.get('/',(req,res)=>{
-    res.send(`Hello world from server`)
-});
+
 
 app.get('/about',middleware,(req,res)=>{
     console.log("about");
