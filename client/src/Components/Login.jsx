@@ -10,7 +10,7 @@ const Login = () => {
     //     // e.preventDefault();
     //   let {name,value}=e.target;
     //   console.log(name,value)
-    //   setUser({...user,[name]:value})
+    //   setUser({...user,[name]:value})  
     // }
 
     // const sendData=async(e)=>{
