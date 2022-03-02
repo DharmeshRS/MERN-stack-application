@@ -45,7 +45,7 @@ router.post("/register", async (req,res)=>{
                     if(userExist){
                         return res.status(401).json({error:"Email Already Exist"})
                     }else if(password != cpassword){
-                        res.status(402).json({message:"Passwords are not matched.."})
+                        res.status(401).json({message:"Passwords are not matched.."})
                     }else{
                         const userData=new User({name,email,phone,work,password,cpassword})
                         const userRegister=await userData.save();
@@ -63,7 +63,7 @@ router.post('/signin',async(req,res)=>{
         const {email,password}=req.body;
         // console.log(email,password);                                                                                                                                                                                                                                                                                                                                                                                                                 
         if(!email || !password){
-            return res.status(400).json({error:"please fill the valid credentials"})
+            return res.status(401).json({error:"please fill the valid credentials"})
         }
         console.log(email);
         const userLogin=await User.findOne({email:email})
