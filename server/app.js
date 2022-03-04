@@ -11,18 +11,18 @@ const port=process.env.PORT;
 // const User=require('./models/user.model')
 //middleware
 
-const middleware=(req,res,next)=>{
-    console.log("Enter Into middleware")
-    next();
-}
+// const middleware=(req,res,next)=>{
+//     console.log("Enter Into middleware")
+//     next();
+// }
 
 
 
 
-app.get('/about',middleware,(req,res)=>{
-    console.log("about");
-    res.send(`Hello world from about`)
-});
+// app.get('/about',(req,res)=>{
+//     console.log("about");
+//     res.send(`Hello world from about`)
+// });
 
 app.get('/contact',(req,res)=>{
     res.send(`Hello world from Contact`)

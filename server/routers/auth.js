@@ -1,7 +1,8 @@
 const express=require("express");
 const User=require('../models/user.model');
 const bcrypt=require("bcryptjs");
-const jwt=  require('jsonwebtoken')
+const jwt=  require('jsonwebtoken');
+const authenticate=require('../middleware/authenticate');
 const router=express.Router()
 
 router.get('/',(req,res)=>{
@@ -94,5 +95,11 @@ router.post('/signin',async(req,res)=>{
         console.log(error)
     }
 })
+
+router.get('/about',authenticate,(req,res)=>{
+        console.log("about");
+        res.send(req.rootUser)
+    });
+
 
 module.exports=router;
